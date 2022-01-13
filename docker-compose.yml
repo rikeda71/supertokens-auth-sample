@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: user_db
+    volumes:
+      - type: volume
+        source: dbdata
+        target: /var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=supertokens
+      - MYSQL_USER=user
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_PASSWORD=pass
+    ports:
+      - 3306:3306
+  supertokens:
+    image: registry.supertokens.io/supertokens/supertokens-mysql
+    environment:
+      # ref. https://supertokens.io/docs/emailpassword/common-customizations/core/api-keys#step-1-add-to-the-core
+      - API_KEYS=Akjnv3iunvsoi8=-sackjij3ncisds
+      - MYSQL_USER=user
+      - MYSQL_HOST=user_db
+      - MYSQL_PORT=3306
+      - MYSQL_PASSWORD=pass
+    ports:
+      - 3567:3567
+    depends_on:
+      - "db"
+
+volumes:
+  dbdata:
