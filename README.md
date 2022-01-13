@@ -1,12 +1,10 @@
-# supertokens-auth-app
+# supertokens-auth-sample
 
 sample project for supertokens
 
 ## supertokens ?
 
-`supertokens` is open source authorization/authentication api instead of Firebase Auth, AWS Cognito or Auth0.
-
-https://github.com/supertokens
+[supertokens](https://github.com/supertokens) is open source authorization/authentication api instead of Firebase Auth, AWS Cognito or Auth0.
 
 ## usage
 
